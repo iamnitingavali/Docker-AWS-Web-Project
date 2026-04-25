@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — DockerLearn</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/" class="logo">🐳 DockerLearn</a>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:16px">
+      <span id="user-name" style="font-size:14px;color:var(--gray)">Loading...</span>
+      <button class="btn btn-ghost" onclick="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="dashboard">
+  <div class="dash-layout">
+    <aside class="dash-sidebar">
+      <nav class="dash-nav">
+        <a href="/dashboard.html" class="active">📊 Dashboard</a>
+        <a href="/courses.html">📚 Courses</a>
+        <a href="/blog.html">📝 Blog</a>
+        <a href="/profile.html">👤 Profile</a>
+        <a href="/about.html">ℹ️ About</a>
+        <a href="/contact.html">📬 Contact</a>
+      </nav>
+    </aside>
+    <main class="dash-main">
+      <div class="dash-welcome">
+        <h2>Welcome back, <span id="dash-name">User</span>! 👋</h2>
+        <p style="color:var(--gray);font-size:14px;margin-top:4px">Here's your learning progress at a glance.</p>
+      </div>
+      <div class="dash-stats">
+        <div class="dash-stat">
+          <div class="label">Courses Enrolled</div>
+          <div class="value" style="color:var(--blue)">3</div>
+        </div>
+        <div class="dash-stat">
+          <div class="label">Lessons Completed</div>
+          <div class="value" style="color:var(--green)">12</div>
+        </div>
+        <div class="dash-stat">
+          <div class="label">Hours Learned</div>
+          <div class="value" style="color:var(--purple)">7.5</div>
+        </div>
+        <div class="dash-stat">
+          <div class="label">Streak (days)</div>
+          <div class="value" style="color:var(--orange)">4</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:18px;font-weight:600;margin-bottom:16px">Continue Learning</h3>
+      <div style="display:grid;gap:16px">
+        <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;align-items:center;gap:20px">
+          <div style="font-size:36px">🐳</div>
+          <div style="flex:1">
+            <div style="font-weight:600;margin-bottom:4px">Docker Fundamentals</div>
+            <div style="font-size:13px;color:var(--gray);margin-bottom:10px">Chapter 4: Docker Volumes & Networking</div>
+            <div style="background:var(--light);border-radius:100px;height:6px"><div style="background:var(--blue);height:6px;border-radius:100px;width:68%"></div></div>
+            <div style="font-size:12px;color:var(--gray);margin-top:4px">68% complete</div>
+          </div>
+          <a href="/courses.html" class="btn btn-primary">Continue</a>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;align-items:center;gap:20px">
+          <div style="font-size:36px">🌐</div>
+          <div style="flex:1">
+            <div style="font-weight:600;margin-bottom:4px">Nginx Mastery</div>
+            <div style="font-size:13px;color:var(--gray);margin-bottom:10px">Chapter 2: Reverse Proxy Configuration</div>
+            <div style="background:var(--light);border-radius:100px;height:6px"><div style="background:var(--purple);height:6px;border-radius:100px;width:30%"></div></div>
+            <div style="font-size:12px;color:var(--gray);margin-top:4px">30% complete</div>
+          </div>
+          <a href="/courses.html" class="btn btn-outline">Continue</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+const token = localStorage.getItem('token');
+const user = JSON.parse(localStorage.getItem('user') || '{}');
+if (!token) window.location.href = '/login.html';
+document.getElementById('user-name').textContent = user.email || 'User';
+document.getElementById('dash-name').textContent = user.name || 'User';
+function logout() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  window.location.href = '/';
+}
+</script>
+</body>
+</html>

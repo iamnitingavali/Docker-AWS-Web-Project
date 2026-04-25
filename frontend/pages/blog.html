@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog — DockerLearn</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/" class="logo">🐳 DockerLearn</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/courses.html">Courses</a></li>
+      <li><a href="/blog.html" class="active">Blog</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-auth">
+      <a href="/login.html" class="btn btn-ghost">Login</a>
+      <a href="/register.html" class="btn btn-primary">Sign Up</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Blog & Tutorials</h1>
+    <p>Deep dives on Docker, Nginx, AWS, and DevOps best practices.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="posts-grid">
+      <article class="post-card">
+        <div class="post-thumb" style="background:#dbeafe">🐳</div>
+        <div class="post-body">
+          <span class="post-tag docker">Docker</span>
+          <h3>Understanding Docker Volumes: The Complete Guide</h3>
+          <p>Learn why volumes are the right way to persist data in Docker, how bind mounts work, and when to use named vs anonymous volumes.</p>
+          <div class="post-meta">📅 Dec 10, 2024 · ⏱ 8 min read</div>
+        </div>
+      </article>
+      <article class="post-card">
+        <div class="post-thumb" style="background:#d1fae5">🌐</div>
+        <div class="post-body">
+          <span class="post-tag nginx">Nginx</span>
+          <h3>Nginx as a Reverse Proxy: Why It Matters</h3>
+          <p>Understand what a reverse proxy does, how Nginx sits in front of your app, handles SSL, and load balances traffic.</p>
+          <div class="post-meta">📅 Dec 5, 2024 · ⏱ 10 min read</div>
+        </div>
+      </article>
+      <article class="post-card">
+        <div class="post-thumb" style="background:#fef3c7">☁️</div>
+        <div class="post-body">
+          <span class="post-tag aws">AWS</span>
+          <h3>Deploying Docker on AWS EC2 Free Tier</h3>
+          <p>Step-by-step guide to launching an EC2 t2.micro, installing Docker, and deploying your containerized app without spending a dollar.</p>
+          <div class="post-meta">📅 Dec 1, 2024 · ⏱ 15 min read</div>
+        </div>
+      </article>
+      <article class="post-card">
+        <div class="post-thumb" style="background:#fce7f3">🔒</div>
+        <div class="post-body">
+          <span class="post-tag docker">Docker</span>
+          <h3>Free SSL with Let's Encrypt + Certbot in Docker</h3>
+          <p>Automate SSL certificate generation and renewal inside a Docker container. Works with Nginx, free, and renews itself every 90 days.</p>
+          <div class="post-meta">📅 Nov 28, 2024 · ⏱ 12 min read</div>
+        </div>
+      </article>
+      <article class="post-card">
+        <div class="post-thumb" style="background:#ede9fe">🔀</div>
+        <div class="post-body">
+          <span class="post-tag docker">Docker</span>
+          <h3>Docker Compose for Multi-Container Apps</h3>
+          <p>One YAML file to rule them all. Learn how docker-compose.yml ties together your frontend, backend, database, and proxy services.</p>
+          <div class="post-meta">📅 Nov 22, 2024 · ⏱ 9 min read</div>
+        </div>
+      </article>
+      <article class="post-card">
+        <div class="post-thumb" style="background:#d1fae5">🌐</div>
+        <div class="post-body">
+          <span class="post-tag nginx">Nginx</span>
+          <h3>Nginx Caching: Speed Up Your App for Free</h3>
+          <p>Use Nginx's built-in proxy cache to reduce backend load and serve responses in microseconds. Config included.</p>
+          <div class="post-meta">📅 Nov 15, 2024 · ⏱ 7 min read</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand"><a href="/" class="logo">🐳 DockerLearn</a><p>A learning project for Docker enthusiasts.</p></div>
+    <div class="footer-col"><h4>Learn</h4><a href="/courses.html">Courses</a><a href="/blog.html">Blog</a></div>
+    <div class="footer-col"><h4>Account</h4><a href="/login.html">Login</a><a href="/register.html">Register</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/about.html">About</a><a href="/contact.html">Contact</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2024 DockerLearn · Built for learning Docker + Nginx + AWS</p></div>
+</footer>
+<script src="/js/main.js"></script>
+</body>
+</html>

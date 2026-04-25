@@ -1,0 +1,51 @@
+# =========================================
+# BACKEND DOCKERFILE
+# =========================================
+# WHY NODE:20-ALPINE?
+#   - alpine = minimal Linux (~5MB base)
+#   - Much smaller than node:20 (~1GB vs ~180MB)
+#   - Fewer security vulnerabilities
+#   - Faster to pull, push, and start
+# =========================================
+
+# Stage 1: Base image
+FROM node:20-alpine
+
+# WHY WORKDIR?
+#   - Sets the working directory INSIDE the container
+#   - All following commands run from here
+#   - Keeps files organized (not dumped in root /)
+WORKDIR /app
+
+# WHY COPY package.json BEFORE source code?
+#   - Docker caches each step (layer)
+#   - If you copy everything at once, any code change
+#     causes npm install to run again (slow!)
+#   - By copying package.json first, npm install is only
+#     re-run when dependencies change
+COPY package*.json ./
+
+# Install dependencies
+# WHY --omit=dev?
+#   - Don't install devDependencies (nodemon etc) in production
+#   - Smaller image, less attack surface
+RUN npm install --omit=dev
+
+# Copy the rest of the app source
+COPY . .
+
+# WHY EXPOSE?
+#   - Documents which port this container listens on
+#   - Doesn't actually open any ports — docker run -p does that
+#   - Good practice for documentation
+EXPOSE 3000
+
+# Health check — Docker will call this to know if container is healthy
+# --interval=30s  : check every 30 seconds
+# --timeout=10s   : fail if no response within 10s
+# --retries=3     : mark unhealthy after 3 failures
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+  CMD wget -qO- http://localhost:3000/api/health || exit 1
+
+# Start command
+CMD ["node", "server.js"]

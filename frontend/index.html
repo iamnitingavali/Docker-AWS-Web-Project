@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DockerLearn — Master Docker with Real Projects</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="/" class="logo">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#0ea5e9"/><rect x="6" y="10" width="5" height="4" rx="1" fill="white"/><rect x="12" y="10" width="5" height="4" rx="1" fill="white"/><rect x="18" y="10" width="4" height="4" rx="1" fill="white"/><rect x="6" y="15" width="5" height="4" rx="1" fill="white" opacity="0.7"/><rect x="12" y="15" width="5" height="4" rx="1" fill="white" opacity="0.7"/></svg>
+      DockerLearn
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/courses.html">Courses</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-auth">
+      <a href="/login.html" class="btn btn-ghost">Login</a>
+      <a href="/register.html" class="btn btn-primary">Sign Up Free</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-badge">🐳 Built with Docker + Nginx + AWS</div>
+    <h1>Learn Docker by<br><span class="gradient-text">Building Real Apps</span></h1>
+    <p class="hero-sub">A complete hands-on project: containerized web app, Nginx reverse proxy, AWS free tier deployment, and a custom domain with SSL. Everything you need to level up.</p>
+    <div class="hero-cta">
+      <a href="/register.html" class="btn btn-primary btn-lg">Start Learning Free</a>
+      <a href="/courses.html" class="btn btn-outline btn-lg">View Courses</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" id="counter-students">0</span><span class="stat-label">Students</span></div>
+      <div class="stat"><span class="stat-num" id="counter-courses">0</span><span class="stat-label">Courses</span></div>
+      <div class="stat"><span class="stat-num" id="counter-hours">0</span><span class="stat-label">Hours Content</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="terminal">
+      <div class="terminal-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span style="margin-left:8px;font-size:11px;opacity:.5">bash</span></div>
+      <pre class="terminal-body"><span class="cmd">$ docker-compose up -d</span>
+<span class="out">Creating network "app_default"...</span>
+<span class="out">Creating db ... <span class="ok">done</span></span>
+<span class="out">Creating backend ... <span class="ok">done</span></span>
+<span class="out">Creating nginx ... <span class="ok">done</span></span>
+<span class="cmd">$ docker ps</span>
+<span class="out">CONTAINER ID  IMAGE        STATUS</span>
+<span class="out">3a2f1d8e9c01  nginx:alpine  Up 2s</span>
+<span class="out">7b4c2e1f0d8a  node:alpine   Up 3s</span>
+<span class="out">9d5e3c2a1b7f  postgres:15   Up 3s</span>
+<span class="cursor">▊</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features-section" id="features">
+  <div class="container">
+    <div class="section-header">
+      <h2>Everything in One Project</h2>
+      <p>You'll learn real-world Docker skills, not toy examples.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🐳</div>
+        <h3>Docker Fundamentals</h3>
+        <p>Images, containers, volumes, networks, Dockerfile best practices, and multi-stage builds.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔀</div>
+        <h3>Docker Compose</h3>
+        <p>Orchestrate multi-container apps: web, backend API, database — all with one command.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Nginx Web Server</h3>
+        <p>Reverse proxy, load balancing, static file serving, SSL termination, and caching.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">☁️</div>
+        <h3>AWS Free Tier</h3>
+        <p>Deploy to EC2, store files in S3, manage secrets — all within the free tier limits.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>SSL / HTTPS</h3>
+        <p>Free SSL certificate with Let's Encrypt + Certbot. Auto-renewal included.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗄️</div>
+        <h3>Database + Auth</h3>
+        <p>PostgreSQL in Docker, user registration, login with JWT, persistent data volumes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>How the Stack Works</h2>
+      <p>Each layer has a purpose. Here's how they connect.</p>
+    </div>
+    <div class="stack-visual">
+      <div class="stack-layer" style="background:#0ea5e920;border-color:#0ea5e9">
+        <strong>🌍 Browser</strong> — User visits your domain
+      </div>
+      <div class="stack-arrow">↓ HTTPS (port 443)</div>
+      <div class="stack-layer" style="background:#7c3aed20;border-color:#7c3aed">
+        <strong>🌐 Nginx</strong> — Receives request, terminates SSL, routes traffic
+      </div>
+      <div class="stack-arrow">↓ proxy_pass (port 3000)</div>
+      <div class="stack-layer" style="background:#059669​20;border-color:#059669">
+        <strong>⚙️ Node.js API</strong> — Business logic, auth, reads/writes DB
+      </div>
+      <div class="stack-arrow">↓ TCP (port 5432)</div>
+      <div class="stack-layer" style="background:#d9770620;border-color:#d97706">
+        <strong>🗄️ PostgreSQL</strong> — Stores users, sessions, data (Docker volume)
+      </div>
+      <div class="stack-arrow">↑ All containers on Docker bridge network</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>What Learners Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>"I finally understand Docker volumes. The hands-on project made everything click."</p>
+        <div class="testi-author"><div class="avatar">AK</div><div><strong>Arjun K.</strong><span>Backend Dev</span></div></div>
+      </div>
+      <div class="testimonial-card">
+        <p>"Nginx always confused me. Now I write configs from scratch. Amazing guide!"</p>
+        <div class="testi-author"><div class="avatar">PS</div><div><strong>Priya S.</strong><span>Full Stack Dev</span></div></div>
+      </div>
+      <div class="testimonial-card">
+        <p>"Deployed my first real site on AWS in one afternoon. Domain, SSL, everything!"</p>
+        <div class="testi-author"><div class="avatar">MR</div><div><strong>Miguel R.</strong><span>DevOps Learner</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container cta-inner">
+    <h2>Ready to Containerize Your Knowledge?</h2>
+    <p>Join thousands of developers shipping with Docker, Nginx, and AWS.</p>
+    <a href="/register.html" class="btn btn-white btn-lg">Create Free Account →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">🐳 DockerLearn</a>
+      <p>A learning project for Docker, Nginx, and AWS enthusiasts.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <a href="/courses.html">Courses</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <a href="/login.html">Login</a>
+        <a href="/register.html">Register</a>
+        <a href="/dashboard.html">Dashboard</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 DockerLearn. Built with 🐳 Docker + Nginx + AWS · For learning purposes.</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

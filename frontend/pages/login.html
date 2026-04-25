@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login — DockerLearn</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/" class="logo">🐳 DockerLearn</a>
+  </div>
+</nav>
+
+<div class="form-page">
+  <div class="form-card">
+    <h1>Welcome back</h1>
+    <p class="subtitle">Log in to your DockerLearn account</p>
+
+    <div class="alert alert-error" id="error-msg">Invalid email or password.</div>
+    <div class="alert alert-success" id="success-msg">Logged in! Redirecting...</div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email"/>
+      </div>
+      <div class="form-group">
+        <label for="password">
+          Password
+          <a href="#" style="float:right;font-weight:400;color:var(--blue);font-size:13px">Forgot password?</a>
+        </label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="current-password"/>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full" id="login-btn">Log In</button>
+    </form>
+
+    <div class="form-divider">or</div>
+
+    <button class="btn btn-outline btn-full" onclick="demoLogin()">
+      🎯 Try Demo Account
+    </button>
+
+    <p class="form-footer">Don't have an account? <a href="/register.html">Sign up free</a></p>
+  </div>
+</div>
+
+<script>
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('login-btn');
+  btn.textContent = 'Logging in...';
+  btn.disabled = true;
+
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  try {
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const data = await res.json();
+
+    if (res.ok) {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+      document.getElementById('success-msg').classList.add('show');
+      setTimeout(() => window.location.href = '/dashboard.html', 1200);
+    } else {
+      document.getElementById('error-msg').textContent = data.error || 'Login failed.';
+      document.getElementById('error-msg').classList.add('show');
+      btn.textContent = 'Log In';
+      btn.disabled = false;
+    }
+  } catch {
+    document.getElementById('error-msg').textContent = 'Server error. Is the backend running?';
+    document.getElementById('error-msg').classList.add('show');
+    btn.textContent = 'Log In';
+    btn.disabled = false;
+  }
+});
+
+function demoLogin() {
+  document.getElementById('email').value = 'demo@dockerlearn.com';
+  document.getElementById('password').value = 'demo1234';
+  document.getElementById('login-form').requestSubmit();
+}
+</script>
+</body>
+</html>
